@@ -1,6 +1,11 @@
-name: Discord Notify on Push
+name: Discord Notify
 
-on: [push]
+on:
+  push:
+  issues:
+    types: [opened, closed]
+  pull_request:
+    types: [opened, closed]
 
 jobs:
   notify:
@@ -10,7 +15,28 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          EVENT="${{ github.event_name }}"
+          ACTOR="${{ github.actor }}"
+          REPO="${{ github.repository }}"
+          REF="${{ github.ref_name }}"
+
+          if [ "$EVENT" = "push" ]; then
+            MSG="🚀 Push in **$REPO** on branch \`$REF\` by **$ACTOR**"
+          elif [ "$EVENT" = "issues" ]; then
+            ISSUE_TITLE="${{ github.event.issue.title }}"
+            ISSUE_NUMBER="${{ github.event.issue.number }}"
+            ISSUE_ACTION="${{ github.event.action }}"
+            MSG="🐛 Issue **#${ISSUE_NUMBER}** _${ISSUE_TITLE}_ was **${ISSUE_ACTION}** by **$ACTOR**"
+          elif [ "$EVENT" = "pull_request" ]; then
+            PR_TITLE="${{ github.event.pull_request.title }}"
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+            PR_ACTION="${{ github.event.action }}"
+            MSG="📦 Pull Request **#${PR_NUMBER}** _${PR_TITLE}_ was **${PR_ACTION}** by **$ACTOR**"
+          else
+            MSG="📣 Event **$EVENT** triggered by **$ACTOR**"
+          fi
+
           curl -H "Content-Type: application/json" \
             -X POST \
-            -d "{\"content\": \"🚀 Push detected in **${{ github.repository }}** on branch `${{ github.ref_name }}` by `${{ github.actor }}`\"}" \
+            -d "{\"content\": \"$MSG\"}" \
             $DISCORD_WEBHOOK
