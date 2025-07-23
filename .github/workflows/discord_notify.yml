@@ -1,0 +1,16 @@
+name: Discord Notify on Push
+
+on: [push]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -H "Content-Type: application/json" \
+            -X POST \
+            -d "{\"content\": \"🚀 Push detected in **${{ github.repository }}** on branch `${{ github.ref_name }}` by `${{ github.actor }}`\"}" \
+            $DISCORD_WEBHOOK
