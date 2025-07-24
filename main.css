@@ -1,6 +1,12 @@
 .maintext{
     font-size: 14pt;
     font-style: normal;
-    font: "IPAexGothic";
-    color: #390049
+    color: #502479;
+    text-decoration:none;
+}
+.headtext{
+    font-size: 24pt;
+    font-style: normal;
+    color: #241e74;
+    text-decoration:none;
 }
