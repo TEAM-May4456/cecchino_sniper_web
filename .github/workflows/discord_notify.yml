@@ -1,7 +1,6 @@
 name: Discord Notify
 
 on:
-  push:
   issues:
     types: [opened, closed]
   pull_request:
@@ -20,9 +19,7 @@ jobs:
           REPO="${{ github.repository }}"
           REF="${{ github.ref_name }}"
 
-          if [ "$EVENT" = "push" ]; then
-            MSG="🚀 Push in **$REPO** on branch \`$REF\` by **$ACTOR**"
-          elif [ "$EVENT" = "issues" ]; then
+          if [ "$EVENT" = "issues" ]; then
             ISSUE_TITLE="${{ github.event.issue.title }}"
             ISSUE_NUMBER="${{ github.event.issue.number }}"
             ISSUE_ACTION="${{ github.event.action }}"
