@@ -1,12 +1,30 @@
 .maintext{
     font-size: 14pt;
     font-style: normal;
-    color: #502479;
+    color: #0d3e4b;
     text-decoration:none;
 }
-.headtext{
-    font-size: 24pt;
+.rubitext{
+    font-size: 36px;
     font-style: normal;
-    color: #241e74;
+    line-height: 61px;
+    color: #A54141;
     text-decoration:none;
+    margin: 20px;
+}
+.headtext{
+    font-size: 128px;
+    font-style: normal;
+    line-height: 172px;
+    color: #A54141;
+    text-decoration:none;
+}
+.headline{
+    font-size: 18;
+    font-style: normal;
+    color: #731032;
+    text-decoration:none;
+}
+br{
+    font-size: 2px;
 }
