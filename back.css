@@ -1,9 +1,25 @@
+/* back.css */
+
 body {
-	background-color: #FFC0C0;
+    background-color: #FFC0C0;
 }
+
+/* ヘッダー全体のレイアウトと背景をここでまとめて指定 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+    /* ↓↓↓ 背景画像の設定はこちらに移動！ ↓↓↓ */
+    background-image: url(assets/EDGE2-3.png);
+    background-size: cover;          /* ヘッダー全体を画像が覆うように */
+    background-position: center;     /* 画像の中央部分を優先的に表示 */
+    background-repeat: no-repeat;    /* 画像が繰り返されないようにする */
+}
+
+/* タイトル部分のdivは、余計なスタイルを無くしてシンプルに */
 .head {
-	position: static;
-	width: 100%;
-	min-height: 100%;
-	background-image: url(assets/EDGE2-3.png);
+    /* width, min-height, position, background-image は不要なので削除 */
+    margin: 0; /* CSSの重複を避けるため、ここにマージンリセットを記述 */
 }
