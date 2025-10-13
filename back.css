@@ -7,3 +7,9 @@
 body {
 	background-color: #FFC0C0;
 }
+.head {
+	position: static;
+	width: 100%;
+	min-height: 100%;
+	background-image: url(assets/EDGE2-3.png);
+}
