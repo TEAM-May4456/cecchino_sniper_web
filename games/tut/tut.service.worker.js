@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1762239267|432118455';
+const CACHE_VERSION = '1762240566|1730321383';
 /** @type {string} */
 const CACHE_PREFIX = 'tutorial_ITK-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
