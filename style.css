@@ -63,3 +63,41 @@ header {
     font-size: 18px;
     color: #fff; /* 背景が濃い色なので、文字は白など明るい色に */
 }
+
+
+
+/* アニメーションの準備 */
+.accordion-content {
+  /* 初期状態でコンテンツの高さをゼロにして隠す */
+  max-height: 0; 
+  overflow: hidden; /* 隠れている時に内容がはみ出さないように */
+  
+  /* ぴよよ～んという動きのための設定 */
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  
+  /* 非表示の時はパディングもゼロにする */
+  padding: 0 15px;
+}
+
+/* 表示された時の状態 */
+.accordion-content.active {
+  /* 表示されたときに十分な高さを与える（コンテンツの長さより長ければOK） */
+  max-height: 500px; /* 十分な値に設定 */
+  
+  /* 表示されたときのパディング */
+  padding: 10px 15px; 
+}
+
+/* ボタンのスタイル（任意） */
+.accordion-header {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #94b3d2;
+  color: #000000;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
