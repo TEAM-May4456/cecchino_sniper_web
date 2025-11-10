@@ -21,6 +21,11 @@
     color: #A54141;
     text-decoration:none;
 }
+@media (max-width: 768px){
+    .headtext{
+        font-size: 400%;
+    }
+}
 .headline{
     font-size: 64px;
     font-style: normal;
