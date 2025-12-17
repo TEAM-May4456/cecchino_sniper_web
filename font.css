@@ -21,17 +21,39 @@
     color: #A54141;
     text-decoration:none;
 }
-@media (max-width: 768px){
-    .headtext{
-        font-size: 400%;
-    }
-}
 .headline{
     font-size: 64px;
     font-style: normal;
     color: #731032;
     text-decoration:none;
 }
+@media (max-width: 768px){
+    .headtext{
+        font-size: 400%;
+    }
+    .maintext{
+        font-size: 9pt;
+        font-style: normal;
+        color: #0d3e4b;
+        text-decoration:none;
+    }
+    .rubitext{
+        font-size: 12px;
+        font-style: normal;
+        font-family: "PixelMplus12";
+        line-height: 61px;
+        color: #A54141;
+        text-decoration:none;
+        margin: 20px;
+    }
+    .headline{
+        font-size: 16px;
+        font-style: normal;
+        color: #731032;
+        text-decoration:none;
+    }
+}
+
 br{
     font-size: 2px;
 }
